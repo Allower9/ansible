@@ -1,0 +1,6 @@
+target ansible_host=192.168.1.191 ansible_user=user1 ansible_ssh_pass=netlab123 ansible_become_pass=netlab123
+target2 ansible_host=192.168.1.126 ansible_user=user1 ansible_ssh_pass=netlab123 ansible_become_pass=netlab123
+
+[web]
+target
+target2

@@ -1,0 +1,20 @@
+
+- hosts: target, target2
+  name: Play1
+  become: yes
+  tasks:
+    - name: execute command "date"
+      command: date
+
+- name: Play2
+  become: yes
+  hosts: web
+  tasks:
+    - name: install httpd service
+      apt:
+        name: apache2
+        state: present
+    - name: state webservice
+      service:
+        name: apache2
+        state: started
