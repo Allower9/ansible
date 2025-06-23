@@ -1,0 +1,30 @@
+- name: Install required system packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ mysql_system_packages }}"
+
+- name: Install MySQL packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ mysql_packages }}"
+
+- name: Ensure MySQL service is running
+  service:
+    name: mariadb
+    state: started
+    enabled: yes
+
+- name: Create MySQL database
+  mysql_db:
+    name: "{{ mysql_db_name }}"
+    state: present
+
+- name: Create MySQL user with privileges
+  mysql_user:
+    name: "{{ mysql_user_name }}"
+    password: "{{ mysql_user_password }}"
+    priv: "{{ mysql_db_name }}.*:ALL"
+    state: present
+  no_log: true  # Скрывает пароль в логах

@@ -1,0 +1,12 @@
+---
+- name: Install and Configure MySQL
+  hosts: all
+  become: yes
+  
+  roles:
+    - role: mysql-role  
+      vars:
+         db_name: testdb
+         mysql_user_name: mysql
+         mysql_user_password: lolkek
+      

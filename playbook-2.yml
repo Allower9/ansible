@@ -1,0 +1,44 @@
+---
+- name: Install and Configure MySQL
+  hosts: target1
+  become: yes
+  vars:
+    db_name: testdb
+    mysql_user_name: mysql
+    mysql_user_password: lolkek
+  tasks:
+
+    - name: Install packages
+      vars:
+        packages:
+          - apt-utils
+      apt: 
+        name: '{{ packages }}'
+        state: present
+
+    - name: Install MySQL packages
+      vars:
+        packages:
+          - mariadb-server
+          - mariadb-client
+          - python3-dev
+          - python3-mysqldb
+      apt: 
+        name: '{{ packages }}' 
+        state: present
+
+    - name: 'Start mysql'
+      ansible.builtin.service:
+        name: mariadb
+        state: started
+
+    - name: Configure db
+      mysql_db: name='{{ db_name }}' state=present
+
+    - name: Create dbuser
+      no_log: true
+      mysql_user:
+        name: "{{ mysql_user_name }}"
+        password: "{{ mysql_user_password }}"
+        priv: "{{ db_name }}.*:ALL"
+        state: present
