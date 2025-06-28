@@ -1,3 +1,8 @@
+Стенд:
+target -- подопытный
+target2  -- подопыный
+ansible-controller на нём ansible 
+
 # inventory  
 ### target ansible_host=192.168.1.191 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
 ### target2 ansible_host=192.168.1.126 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
@@ -15,7 +20,7 @@
  
 
 ### 2) для удобства поменяем  /etc/hostname --> на нужный и также /etc/hosts ---> убираем все кроме hostname (нового) и localhost
-### 3) установить на ansible-controller( это hostname узла ) ---> apt install ansible +++ apt install sshpass ---> если будем входить по паролю, а не по  ssh
+### 3) установить на ansible-controller( это hostname узла ) ---> `apt install ansible` +++ `apt install sshpass` ---> если будем входить по паролю, а не по  ssh
 ###  4) создадим папку например (project) ---> полный путь /host/user1/project ---> добавим там файл inventory 
 ###  5) root@ansible-controller:/home/user1/project# cat inventory 
 ###  target ansible_host=192.168.157.126 ansible_user=user1 ansible_ssh_pass=<ваш_пароль>
