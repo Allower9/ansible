@@ -1,10 +1,10 @@
 # inventory  
-target ansible_host=192.168.1.191 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
-target2 ansible_host=192.168.1.126 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
+### target ansible_host=192.168.1.191 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
+### target2 ansible_host=192.168.1.126 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
 
 [web]
-target
-target2
+- target
+- target2
 
 
 ------------
