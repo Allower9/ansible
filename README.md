@@ -1,7 +1,7 @@
-Стенд:
-target -- подопытный
-target2  -- подопыный
-ansible-controller на нём ansible 
+#### Стенд:
+#### target -- подопытный
+#### target2  -- подопыный
+#### ansible-controller на нём ansible 
 
 # inventory  
 ### target ansible_host=192.168.1.191 ansible_user=user1 ansible_ssh_pass=<ваш_пароль> ansible_become_pass=<ваш_пароль>
